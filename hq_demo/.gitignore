@@ -1,0 +1,34 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test outputs and logs
+test_*.log
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+temp_*
+
+# Results (managed separately)
+# results/ directories are tracked via results/.gitignore
