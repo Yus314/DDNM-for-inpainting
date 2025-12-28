@@ -27,7 +27,7 @@ def setup_model(config_path, device=None):
     conf = conf_arg
 
     if device is None:
-        device = dist_util.dev()
+        device = dist_util.dev(conf.get('device'))
 
     print("Creating model and diffusion...")
     model, diffusion = create_model_and_diffusion(
@@ -37,7 +37,7 @@ def setup_model(config_path, device=None):
 
     print(f"Loading model weights from {conf.model_path}")
     model.load_state_dict(
-        torch.load(conf.model_path, map_location="cpu")
+        dist_util.load_state_dict(conf.model_path, map_location="cpu")
     )
 
     model.to(device)
