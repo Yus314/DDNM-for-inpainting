@@ -30,3 +30,64 @@ def yamlread(path):
 
 def imwrite(path=None, img=None):
     Image.fromarray(img).save(path)
+
+
+# ============================================================================
+# New utility modules
+# ============================================================================
+
+# Model loading utilities
+from .model_loader import setup_model
+
+# Image processing utilities
+from .image_processing import (
+    load_image_as_tensor,
+    load_mask_as_tensor,
+    tensor_to_pil,
+    tensor_to_numpy,
+    create_comparison_image,
+)
+
+# Batch processing utilities
+from .batch_utils import (
+    MASK_PATHS,
+    get_mask_path,
+    setup_directories,
+    get_image_list,
+    write_log,
+    create_batch_log_file,
+)
+
+# Results management utilities
+from .result_manager import (
+    get_result_directories,
+    cleanup_old_results,
+    list_result_directories,
+)
+
+
+__all__ = [
+    # Legacy functions
+    'txtread',
+    'yamlread',
+    'imwrite',
+    # Model loading
+    'setup_model',
+    # Image processing
+    'load_image_as_tensor',
+    'load_mask_as_tensor',
+    'tensor_to_pil',
+    'tensor_to_numpy',
+    'create_comparison_image',
+    # Batch processing
+    'MASK_PATHS',
+    'get_mask_path',
+    'setup_directories',
+    'get_image_list',
+    'write_log',
+    'create_batch_log_file',
+    # Results management
+    'get_result_directories',
+    'cleanup_old_results',
+    'list_result_directories',
+]
