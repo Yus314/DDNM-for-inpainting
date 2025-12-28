@@ -25,12 +25,28 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from conf_mgt import conf_base
 from guided_diffusion import dist_util
 from guided_diffusion.script_util import create_model_and_diffusion, model_and_diffusion_defaults, select_args
-from utils import yamlread
+from utils import (
+    yamlread,
+    setup_model,
+    load_image_as_tensor,
+    tensor_to_pil,
+    create_comparison_image,
+)
 from utils.mask_generator import (
     create_boundary_ring_mask,
     visualize_mask_info,
     save_mask_as_image,
 )
+
+
+# ============================================================================
+# Utility functions now imported from utils module
+# ============================================================================
+# - setup_model: モデルと拡散プロセスのセットアップ
+# - load_image_as_tensor: PIL画像をテンソルに変換
+# - tensor_to_pil: テンソルをPIL画像に変換
+# - create_comparison_image: 比較画像を作成（元画像 | マスク | 結果）
+# ============================================================================
 
 
 def get_image_list(input_dir: str, extensions: tuple = ('.jpg', '.jpeg', '.png', '.bmp')):
@@ -41,43 +57,6 @@ def get_image_list(input_dir: str, extensions: tuple = ('.jpg', '.jpeg', '.png',
         images.extend(input_path.glob(f'*{ext}'))
         images.extend(input_path.glob(f'*{ext.upper()}'))
     return sorted(images)
-
-
-def load_image_as_tensor(image_path: str, image_size: int = 512, device: str = 'cpu'):
-    """画像を読み込んでテンソルに変換"""
-    pil_image = Image.open(image_path).convert('RGB')
-    if pil_image.size != (image_size, image_size):
-        pil_image = pil_image.resize((image_size, image_size), Image.Resampling.LANCZOS)
-    
-    arr_image = np.array(pil_image).astype(np.float32) / 127.5 - 1  # [-1, 1]
-    tensor = torch.from_numpy(np.transpose(arr_image, [2, 0, 1])).unsqueeze(0).to(device)
-    return tensor, pil_image
-
-
-def tensor_to_pil(tensor: torch.Tensor) -> Image.Image:
-    """テンソルをPIL画像に変換"""
-    arr = tensor[0].cpu().detach().numpy()
-    arr = np.transpose(arr, [1, 2, 0])
-    arr = ((arr + 1) / 2 * 255).clip(0, 255).astype(np.uint8)
-    return Image.fromarray(arr)
-
-
-def create_comparison_image(original: Image.Image, result: Image.Image, mask: torch.Tensor) -> Image.Image:
-    """比較画像を作成（元画像 | マスク | 結果）"""
-    w, h = original.size
-    
-    # マスクをPIL画像に変換
-    mask_arr = mask[0, 0].cpu().numpy()
-    mask_pil = Image.fromarray((mask_arr * 255).astype(np.uint8)).convert('RGB')
-    mask_pil = mask_pil.resize((w, h), Image.Resampling.NEAREST)
-    
-    # 3枚を横に並べる
-    comparison = Image.new('RGB', (w * 3, h))
-    comparison.paste(original, (0, 0))
-    comparison.paste(mask_pil, (w, 0))
-    comparison.paste(result, (w * 2, 0))
-    
-    return comparison
 
 
 def process_single_image(

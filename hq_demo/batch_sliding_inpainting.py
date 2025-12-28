@@ -37,124 +37,41 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from conf_mgt import conf_base
 from guided_diffusion import dist_util
 from guided_diffusion.script_util import create_model_and_diffusion, model_and_diffusion_defaults, select_args
-from utils import yamlread
+from utils import (
+    yamlread,
+    setup_model,
+    load_image_as_tensor,
+    load_mask_as_tensor,
+    tensor_to_pil,
+    get_mask_path,
+    setup_directories,
+    get_image_list,
+    write_log,
+    create_batch_log_file,
+)
 
 
 # ============================================================================
-# マスク管理システム
+# Utility functions now imported from utils module
 # ============================================================================
-
-MASK_PATHS = {
-    'center_mask': 'data/datasets/gt_keep_masks/center_mask_512/center_mask_512x512.png',
-    'boundary_ring_5px': 'data/datasets/gt_keep_masks/boundary_ring_168_5px/mask.png',
-    'boundary_ring_10px': 'data/datasets/gt_keep_masks/boundary_ring_168_10px/mask.png',
-}
-
-
-def get_mask_path(mask_type: str) -> str:
-    """
-    マスクタイプから実際のファイルパスを返す
-
-    Args:
-        mask_type: マスクタイプ ('center_mask', 'boundary_ring_5px', 'boundary_ring_10px')
-
-    Returns:
-        マスクファイルの絶対パス
-
-    Raises:
-        ValueError: 不正なマスクタイプの場合
-        FileNotFoundError: マスクファイルが存在しない場合
-    """
-    if mask_type not in MASK_PATHS:
-        available = ', '.join(MASK_PATHS.keys())
-        raise ValueError(f"Invalid mask_type: {mask_type}. Available: {available}")
-
-    mask_path = MASK_PATHS[mask_type]
-
-    if not os.path.exists(mask_path):
-        raise FileNotFoundError(f"Mask file not found: {mask_path}")
-
-    return mask_path
+# - get_mask_path: マスクタイプからファイルパスを取得
+# - setup_directories: 出力ディレクトリの準備
+# - get_image_list: 入力画像のリスト取得
+# - write_log: ログファイルへの記録
+# - setup_model: モデルと拡散プロセスのセットアップ
+# - load_image_as_tensor: PIL画像をテンソルに変換
+# - load_mask_as_tensor: マスクをテンソルに変換
+# - tensor_to_pil: テンソルをPIL画像に変換
+# ============================================================================
 
 
 # ============================================================================
-# ディレクトリ・ファイル管理
+# Local model setup wrapper for sliding window mode
 # ============================================================================
 
-def setup_directories(base_output_dir: str) -> Tuple[Path, Path, Path]:
+def setup_model_sliding(config_path: str = "confs/test_inpainting_256.yml"):
     """
-    出力ディレクトリの準備
-
-    Args:
-        base_output_dir: ベース出力ディレクトリパス
-
-    Returns:
-        (base_path, log_dir, final_results_dir) のタプル
-    """
-    base_path = Path(base_output_dir)
-    base_path.mkdir(parents=True, exist_ok=True)
-
-    # ログディレクトリ
-    log_dir = base_path / "logs"
-    log_dir.mkdir(exist_ok=True)
-
-    # 最終結果を集約するディレクトリ
-    final_results_dir = base_path / "final_results"
-    final_results_dir.mkdir(exist_ok=True)
-
-    return base_path, log_dir, final_results_dir
-
-
-def get_image_list(input_dir: str) -> List[Path]:
-    """
-    入力ディレクトリから画像ファイルのリストを取得
-
-    Args:
-        input_dir: 入力ディレクトリパス
-
-    Returns:
-        ソートされた画像ファイルパスのリスト
-
-    Raises:
-        FileNotFoundError: ディレクトリが存在しない場合
-        ValueError: 画像ファイルが見つからない場合
-    """
-    input_path = Path(input_dir)
-    if not input_path.exists():
-        raise FileNotFoundError(f"Input directory not found: {input_dir}")
-
-    # サポートする画像拡張子
-    extensions = ['*.jpg', '*.jpeg', '*.png', '*.JPG', '*.JPEG', '*.PNG']
-
-    image_files = []
-    for ext in extensions:
-        image_files.extend(input_path.glob(ext))
-
-    # ソート
-    image_files = sorted(image_files)
-
-    if len(image_files) == 0:
-        raise ValueError(f"No image files found in {input_dir}")
-
-    print(f"Found {len(image_files)} images in {input_dir}")
-
-    return image_files
-
-
-def write_log(log_file: Path, message: str):
-    """ログファイルに記録"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(log_file, "a") as f:
-        f.write(f"[{timestamp}] {message}\n")
-
-
-# ============================================================================
-# モデルセットアップ
-# ============================================================================
-
-def setup_model(config_path: str = "confs/test_inpainting_256.yml"):
-    """
-    256x256 inpaintingモデルのセットアップ
+    スライディングウィンドウモード用のモデルセットアップ
 
     Args:
         config_path: 設定ファイルパス
@@ -162,30 +79,10 @@ def setup_model(config_path: str = "confs/test_inpainting_256.yml"):
     Returns:
         (model, diffusion, conf, device) のタプル
     """
-    print(f"Loading configuration from {config_path}")
-    conf = conf_base.Default_Conf()
-    conf.update(yamlread(config_path))
+    model, diffusion, conf, device = setup_model(config_path)
 
     # Nine-Patch Modeを有効化（512x512画像の9分割処理用）
     conf.nine_patch_mode = True
-
-    device = dist_util.dev(conf.get('device'))
-
-    print("Creating model and diffusion...")
-    model, diffusion = create_model_and_diffusion(
-        **select_args(conf, model_and_diffusion_defaults().keys()), conf=conf
-    )
-
-    print(f"Loading model weights from {conf.model_path}")
-    model.load_state_dict(
-        dist_util.load_state_dict(os.path.expanduser(conf.model_path), map_location="cpu")
-    )
-    model.to(device)
-    if conf.use_fp16:
-        model.convert_to_fp16()
-    model.eval()
-
-    print(f"✅ Model loaded successfully on {device}")
 
     return model, diffusion, conf, device
 
@@ -453,21 +350,16 @@ def process_single_image_sliding(
         # 結果保存
         print(f"  💾 Saving results...")
 
-        result_np = ((sample[0].cpu().numpy().transpose(1, 2, 0) + 1) * 127.5)
-        result_np = np.clip(result_np.astype(np.uint8), 0, 255)
-        result_image = Image.fromarray(result_np)
+        result_image = tensor_to_pil(sample)
 
         # 1. final_results/に保存（集約ディレクトリ）
         final_result_path = final_results_dir / f"{image_name}_result.png"
         result_image.save(final_result_path)
 
         # 2. 比較用画像を保存
-        input_image = Image.fromarray(((arr_image + 1) * 127.5).astype(np.uint8))
-        input_image.save(output_dir / "input.png")
+        pil_image.save(output_dir / "input.png")
 
-        masked_input_np = ((gt * gt_keep_mask)[0].cpu().numpy().transpose(1, 2, 0) + 1) * 127.5
-        masked_input_np = np.clip(masked_input_np.astype(np.uint8), 0, 255)
-        masked_input_image = Image.fromarray(masked_input_np)
+        masked_input_image = tensor_to_pil(gt * gt_keep_mask)
         masked_input_image.save(output_dir / "masked_input.png")
 
         mask_image = Image.fromarray((arr_mask * 255).astype(np.uint8))
@@ -585,7 +477,7 @@ Examples:
         process_images = image_files[args.start:end_idx]
 
         # ログファイル
-        log_file = log_dir / f"batch_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        log_file = create_batch_log_file(log_dir)
 
         print(f"\n📋 Configuration:")
         print(f"   Input directory: {args.input_dir}")
@@ -599,7 +491,7 @@ Examples:
 
         # モデルセットアップ（1回のみ）
         print(f"\n🔧 Setting up model...")
-        model, diffusion, conf, device = setup_model(args.config)
+        model, diffusion, conf, device = setup_model_sliding(args.config)
 
         # バッチ処理実行
         print(f"\n{'='*80}")
