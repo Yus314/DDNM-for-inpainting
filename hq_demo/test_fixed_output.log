@@ -1,0 +1,324 @@
+Loading model from ./data/pretrained/256x256_diffusion.pt
+Loading 512x512 test image...
+Image size: (512, 512)
+Mask size: (512, 512)
+🔄 Mask inverted: Center will be INPAINTED (hole), edges will be KEPT
+GT tensor shape: torch.Size([1, 3, 512, 512])
+Inverted mask tensor shape: torch.Size([1, 3, 512, 512])
+Inverted mask values range: 0.000 - 1.000
+🕳️ Starting CENTER HOLE Nine-Patch Inpainting...
+   Target: Remove elephant, fill with beach environment
+🎯 Starting Nine-Patch Inpainting Mode
+🔧 Processing patch 0: (0-256, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  2%|▏         | 1/65 [00:00<00:16,  3.94it/s][A
+  5%|▍         | 3/65 [00:00<00:06,  8.98it/s][A
+  8%|▊         | 5/65 [00:00<00:05, 11.45it/s][A
+ 11%|█         | 7/65 [00:00<00:04, 13.33it/s][A
+ 14%|█▍        | 9/65 [00:00<00:03, 14.58it/s][A
+ 25%|██▍       | 16/65 [00:00<00:01, 28.13it/s][A
+ 29%|██▉       | 19/65 [00:01<00:01, 23.82it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 20.78it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.05it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.06it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.36it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.49it/s][A
+ 69%|██████▉   | 45/65 [00:02<00:00, 29.38it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.80it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.97it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.80it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.78it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.53it/s][A100%|██████████| 65/65 [00:02<00:00, 22.09it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.94s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.94s/it]
+    💿 Saved progressive step 20 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 0 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 0 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 0
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_00/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 1: (0-256, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.93it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.51it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.51it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.79it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 31.04it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.34it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.23it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.35it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.16it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.51it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.59it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.41it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.83it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.98it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.74it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.71it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.39it/s][A100%|██████████| 65/65 [00:02<00:00, 23.74it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 1 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 1 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 1
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_01/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 2: (0-256, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.90it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.41it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.33it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.61it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 30.73it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.19it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.11it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.25it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.04it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.39it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.52it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.35it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.80it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.97it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.80it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.81it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.45it/s][A100%|██████████| 65/65 [00:02<00:00, 23.68it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 2 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 2 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 2
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_02/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 3: (128-384, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.92it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.50it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.38it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.67it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 30.99it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.26it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.21it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.33it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.15it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.50it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.60it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.42it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.77it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.99it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.76it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.83it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.51it/s][A100%|██████████| 65/65 [00:02<00:00, 23.74it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 3 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 3 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 3
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_03/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 4: (128-384, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.87it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.40it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.51it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.67it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 31.10it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.35it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.30it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.35it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.27it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.64it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.61it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.62it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.89it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 22.11it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.90it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 29.01it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.75it/s][A100%|██████████| 65/65 [00:02<00:00, 23.87it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.72s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.72s/it]
+    💿 Saved progressive step 20 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 4 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 4 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 4
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_04/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 5: (128-384, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.76it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.24it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.40it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.70it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 31.15it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.34it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.34it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.43it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.30it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.59it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.65it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.59it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.82it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 22.03it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.79it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.86it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.60it/s][A100%|██████████| 65/65 [00:02<00:00, 23.81it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.73s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.73s/it]
+    💿 Saved progressive step 20 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 5 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 5 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 5
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_05/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 6: (256-512, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.80it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.45it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.43it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.67it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 30.80it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.22it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.12it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.26it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.10it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.45it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.56it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.37it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.75it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.98it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.76it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.82it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.49it/s][A100%|██████████| 65/65 [00:02<00:00, 23.71it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 6 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 6 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 6
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_06/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 7: (256-512, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.91it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.43it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.49it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.77it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 30.93it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.22it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.17it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.26it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.08it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.44it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.49it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.42it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.76it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.94it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.75it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.81it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.62it/s][A100%|██████████| 65/65 [00:02<00:00, 23.75it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 7 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 7 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 7
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_07/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 8: (256-512, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/65 [00:00<?, ?it/s][A
+  3%|▎         | 2/65 [00:00<00:03, 17.76it/s][A
+  6%|▌         | 4/65 [00:00<00:03, 17.29it/s][A
+  9%|▉         | 6/65 [00:00<00:03, 16.36it/s][A
+ 12%|█▏        | 8/65 [00:00<00:03, 16.68it/s][A
+ 23%|██▎       | 15/65 [00:00<00:01, 31.02it/s][A
+ 29%|██▉       | 19/65 [00:00<00:01, 24.26it/s][A
+ 34%|███▍      | 22/65 [00:01<00:02, 21.17it/s][A
+ 38%|███▊      | 25/65 [00:01<00:01, 22.25it/s][A
+ 48%|████▊     | 31/65 [00:01<00:01, 29.13it/s][A
+ 54%|█████▍    | 35/65 [00:01<00:01, 23.45it/s][A
+ 58%|█████▊    | 38/65 [00:01<00:01, 21.53it/s][A
+ 69%|██████▉   | 45/65 [00:01<00:00, 29.36it/s][A
+ 75%|███████▌  | 49/65 [00:02<00:00, 24.74it/s][A
+ 80%|████████  | 52/65 [00:02<00:00, 21.99it/s][A
+ 85%|████████▍ | 55/65 [00:02<00:00, 22.71it/s][A
+ 94%|█████████▍| 61/65 [00:02<00:00, 28.75it/s][A
+100%|██████████| 65/65 [00:02<00:00, 23.57it/s][A100%|██████████| 65/65 [00:02<00:00, 23.72it/s]
+total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]total shifts: 100%|██████████| 1/1 [00:02<00:00,  2.74s/it]
+    💿 Saved progressive step 20 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 20 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 15 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 10 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 5 for patch 8 (interval=5, t_max=25)
+    💿 Saved progressive step 0 for patch 8 (interval=5, t_max=25)
+  📸 Saving progressive step 0 as 0 for patch 8
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_results/patches/patch_08/progressive/step_000.png
+    ✅ Save complete for step 0
+🎨 Starting blending process...
+✅ Enhanced Nine-Patch Inpainting完了!
+📁 詳細結果: results/center_hole_inpainting_results
+✅ Center Hole Inpainting completed!
+📁 Results saved to results/center_hole_inpainting_results/
+🎯 Expected result: Elephant removed, center filled with beach
