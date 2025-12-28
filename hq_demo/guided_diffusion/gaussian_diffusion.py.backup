@@ -891,9 +891,6 @@ class GaussianDiffusion:
         save_image(finalresult[0], image_savepath, 0)
 
         out["sample"] = finalresult
-
-        # Yield the final result for generators that iterate over this function
-        yield out
         return out
 
     def nine_patch_inpainting(self, model, gt, gt_keep_mask, model_kwargs, conf, device):
@@ -929,11 +926,6 @@ class GaussianDiffusion:
         # 入力画像保存
         self._save_input_images(gt, gt_keep_mask, save_path)
 
-        # グローバル画像を更新しながら処理（反復的アプローチ）
-        # 前のパッチの結果を次のパッチが利用できるようにする
-        gt_updated = gt.clone()
-        gt_keep_mask_updated = gt_keep_mask.clone()
-
         # 各パッチ処理
         inpainted_patches = []
 
@@ -942,15 +934,14 @@ class GaussianDiffusion:
 
             print(f"🔧 Processing patch {i}: ({h_start}-{h_end}, {w_start}-{w_end})")
 
-            # 更新されたグローバル画像からパッチ抽出（前のパッチの結果を含む）
-            patch_img = gt_updated[:, :, h_start:h_end, w_start:w_end].clone()
-            patch_mask = gt_keep_mask_updated[:, :, h_start:h_end, w_start:w_end].clone()
+            # パッチ抽出
+            patch_img = gt[:, :, h_start:h_end, w_start:w_end]
+            patch_mask = gt_keep_mask[:, :, h_start:h_end, w_start:w_end]
 
             # 256x256サイズ確保
             if patch_img.shape[2] != 256 or patch_img.shape[3] != 256:
                 patch_img = F.interpolate(patch_img, size=(256, 256), mode='bilinear', align_corners=False)
-                # マスクはバイナリ値なので nearest補間を使用
-                patch_mask = F.interpolate(patch_mask, size=(256, 256), mode='nearest')
+                patch_mask = F.interpolate(patch_mask, size=(256, 256), mode='bilinear', align_corners=False)
 
             # プログレッシブサンプリング可視化器
             visualizer = ProgressiveSamplingVisualizer(save_path, i)
@@ -1018,57 +1009,20 @@ class GaussianDiffusion:
 
             timing_profiler.end_event(f"patch_{i}_processing")
 
-            # グローバル画像を更新（次のパッチが前の結果を利用できるように）
-            if sample is not None:
-                # 更新前のgt_updatedを保存（デバッグ用）
-                gt_before_update = gt_updated.clone()
-
-                # 補完されたパッチをグローバル画像に統合
-                gt_updated[:, :, h_start:h_end, w_start:w_end] = sample
-                # 補完された領域を既知領域として扱う（gt_keep_mask: 1=既知, 0=補完対象）
-                # このパッチ全体を既知領域としてマーク（補完完了）
-                gt_keep_mask_updated[:, :, h_start:h_end, w_start:w_end] = 1.0
-
-                # デバッグ：gt_updatedが実際に変更されたか確認
-                changed = not torch.equal(gt_updated, gt_before_update)
-                diff_value = (gt_updated - gt_before_update).abs().max().item()
-                print(f"  🔍 Patch {i} applied: gt_updated changed = {changed}, max_diff = {diff_value:.4f}")
-
-                # デバッグ：各パッチ適用後のgt_updatedを保存
-                debug_dir = f"{save_path}/debug_gt_updated"
-                os.makedirs(debug_dir, exist_ok=True)
-                save_image_with_name(gt_updated[0], debug_dir, f"gt_updated_after_patch_{i}")
-                save_image_with_name(sample[0], debug_dir, f"patch_{i}_sample")
-
         # ブレンディング処理
         timing_profiler.start_event("blending_process")
 
         print("🎨 Starting blending process...")
 
-        # 反復的アプローチでgt_updatedにすでに結果が統合されているので、それを使用
-        final_result = gt_updated
-
-        # デバッグ：final_resultが元のgtと異なるか確認
-        final_vs_original = not torch.equal(final_result, gt)
-        final_diff = (final_result - gt).abs().max().item()
-        print(f"🔍 Final result vs original: different = {final_vs_original}, max_diff = {final_diff:.4f}")
-
-        # デバッグ用：従来のブレンディング結果も保存
-        blended_result = self._blend_patches_enhanced(inpainted_patches, patch_coords, save_path, device)
-        blending_dir = f"{save_path}/blending"
-        os.makedirs(blending_dir, exist_ok=True)
-        save_image_with_name(blended_result[0], blending_dir, "traditional_blend")
+        # 最終結果計算
+        final_result = self._blend_patches_enhanced(inpainted_patches, patch_coords, save_path, device)
 
         timing_profiler.end_event("blending_process")
 
         # 最終結果保存
         final_dir = f"{save_path}/final"
         os.makedirs(final_dir, exist_ok=True)
-
-        # デバッグ：最終結果と元画像の両方を保存して比較
         save_image_with_name(final_result[0], final_dir, "result")
-        save_image_with_name(gt[0], final_dir, "original_gt")
-        print(f"💾 Saved final result and original for comparison")
 
         timing_profiler.end_event("total_processing")
 

@@ -1,0 +1,14 @@
+📋 Using config: confs/inpainting_512_nine_patch_t100_uncond.yml
+   t_T = 100
+   jump_length = 10
+   🎯 class_cond = False (UNCONDITIONAL)
+Loading model from ./data/pretrained/256x256_diffusion.pt
+Traceback (most recent call last):
+  File "/home/kaki/DDNM/hq_demo/test_uncond_inpainting.py", line 130, in <module>
+    main()
+  File "/home/kaki/DDNM/hq_demo/test_uncond_inpainting.py", line 43, in main
+    model.load_state_dict(
+  File "/home/kaki/DDNM/hq_demo/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2593, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for UNetModel:
+	Unexpected key(s) in state_dict: "label_emb.weight". 

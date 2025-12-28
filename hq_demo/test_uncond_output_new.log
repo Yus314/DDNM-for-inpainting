@@ -1,0 +1,980 @@
+📋 Using config: confs/inpainting_512_nine_patch_t100_uncond.yml
+   t_T = 100
+   jump_length = 10
+   🎯 class_cond = False (UNCONDITIONAL)
+Loading model from ./data/pretrained/256x256_diffusion_uncond.pt
+Loading 512x512 test image...
+Image size: (512, 512)
+Mask size: (512, 512)
+🔄 Mask inverted: Center will be INPAINTED (hole), edges will be KEPT
+GT tensor shape: torch.Size([1, 3, 512, 512])
+Inverted mask tensor shape: torch.Size([1, 3, 512, 512])
+Inverted mask values range: 0.000 - 1.000
+🎨 Unconditional generation: No class label guidance
+🕳️ Starting CENTER HOLE Nine-Patch Inpainting...
+   Target: Remove elephant, fill with beach environment
+🎯 Starting Nine-Patch Inpainting Mode
+🔧 Processing patch 0: (0-256, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  0%|          | 1/280 [00:00<01:05,  4.24it/s][A
+  1%|          | 3/280 [00:00<00:29,  9.42it/s][A
+  2%|▏         | 5/280 [00:00<00:23, 11.87it/s][A
+  2%|▎         | 7/280 [00:00<00:19, 13.70it/s][A
+  3%|▎         | 9/280 [00:00<00:18, 14.88it/s][A
+  4%|▍         | 11/280 [00:00<00:17, 15.17it/s][A
+  5%|▍         | 13/280 [00:00<00:16, 15.83it/s][A
+  5%|▌         | 15/280 [00:01<00:16, 15.80it/s][A
+  6%|▌         | 17/280 [00:01<00:16, 16.25it/s][A
+  7%|▋         | 19/280 [00:01<00:15, 16.57it/s][A
+ 11%|█         | 31/280 [00:01<00:05, 41.76it/s][A
+ 13%|█▎        | 36/280 [00:01<00:08, 28.71it/s][A
+ 14%|█▍        | 40/280 [00:01<00:09, 24.11it/s][A
+ 15%|█▌        | 43/280 [00:02<00:10, 22.23it/s][A
+ 16%|█▋        | 46/280 [00:02<00:11, 20.42it/s][A
+ 18%|█▊        | 49/280 [00:02<00:11, 19.54it/s][A
+ 22%|██▏       | 61/280 [00:02<00:05, 36.95it/s][A
+ 24%|██▎       | 66/280 [00:02<00:07, 27.96it/s][A
+ 25%|██▌       | 70/280 [00:03<00:08, 24.06it/s][A
+ 26%|██▌       | 73/280 [00:03<00:09, 22.34it/s][A
+ 27%|██▋       | 76/280 [00:03<00:09, 20.58it/s][A
+ 28%|██▊       | 79/280 [00:03<00:10, 19.69it/s][A
+ 32%|███▎      | 91/280 [00:03<00:05, 36.40it/s][A
+ 34%|███▍      | 96/280 [00:04<00:06, 27.85it/s][A
+ 36%|███▌      | 100/280 [00:04<00:07, 24.02it/s][A
+ 37%|███▋      | 103/280 [00:04<00:07, 22.33it/s][A
+ 38%|███▊      | 106/280 [00:04<00:08, 20.55it/s][A
+ 39%|███▉      | 109/280 [00:04<00:08, 19.68it/s][A
+ 43%|████▎     | 121/280 [00:05<00:04, 36.23it/s][A
+ 45%|████▌     | 126/280 [00:05<00:05, 27.73it/s][A
+ 46%|████▋     | 130/280 [00:05<00:06, 23.92it/s][A
+ 48%|████▊     | 133/280 [00:05<00:06, 22.26it/s][A
+ 49%|████▊     | 136/280 [00:05<00:07, 20.48it/s][A
+ 50%|████▉     | 139/280 [00:06<00:07, 19.63it/s][A
+ 54%|█████▍    | 151/280 [00:06<00:03, 36.11it/s][A
+ 56%|█████▌    | 156/280 [00:06<00:04, 27.65it/s][A
+ 57%|█████▋    | 160/280 [00:06<00:05, 23.84it/s][A
+ 58%|█████▊    | 163/280 [00:06<00:05, 22.21it/s][A
+ 59%|█████▉    | 166/280 [00:07<00:05, 20.41it/s][A
+ 60%|██████    | 169/280 [00:07<00:05, 19.57it/s][A
+ 65%|██████▍   | 181/280 [00:07<00:02, 35.96it/s][A
+ 66%|██████▋   | 186/280 [00:07<00:03, 27.57it/s][A
+ 68%|██████▊   | 190/280 [00:08<00:03, 23.77it/s][A
+ 69%|██████▉   | 193/280 [00:08<00:03, 22.16it/s][A
+ 70%|███████   | 196/280 [00:08<00:04, 20.35it/s][A
+ 71%|███████   | 199/280 [00:08<00:04, 19.53it/s][A
+ 75%|███████▌  | 211/280 [00:08<00:01, 35.86it/s][A
+ 77%|███████▋  | 216/280 [00:09<00:02, 27.49it/s][A
+ 79%|███████▊  | 220/280 [00:09<00:02, 23.70it/s][A
+ 80%|███████▉  | 223/280 [00:09<00:02, 22.10it/s][A
+ 81%|████████  | 226/280 [00:09<00:02, 20.30it/s][A
+ 82%|████████▏ | 229/280 [00:09<00:02, 19.50it/s][A
+ 86%|████████▌ | 241/280 [00:09<00:01, 35.76it/s][A
+ 88%|████████▊ | 246/280 [00:10<00:01, 27.43it/s][A
+ 89%|████████▉ | 250/280 [00:10<00:01, 23.65it/s][A
+ 90%|█████████ | 253/280 [00:10<00:01, 22.08it/s][A
+ 91%|█████████▏| 256/280 [00:10<00:01, 20.25it/s][A
+ 92%|█████████▎| 259/280 [00:11<00:01, 19.44it/s][A
+ 97%|█████████▋| 271/280 [00:11<00:00, 35.68it/s][A
+ 99%|█████████▊| 276/280 [00:11<00:00, 27.29it/s][A
+100%|██████████| 280/280 [00:11<00:00, 23.56it/s][A100%|██████████| 280/280 [00:11<00:00, 23.93it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.70s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.70s/it]
+    💿 Saved progressive step 95 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 0 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 0 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 0
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_00/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 1: (0-256, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.98it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.49it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.63it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.84it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.38it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.68it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.87it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.43it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.56it/s][A
+ 11%|█         | 30/280 [00:01<00:06, 41.28it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.30it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.13it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 21.67it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 19.95it/s][A
+ 17%|█▋        | 48/280 [00:02<00:12, 19.16it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.09it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.61it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.26it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.01it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.31it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.44it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.78it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.60it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.24it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 21.86it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.07it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.23it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.20it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.06it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 23.92it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 21.75it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.08it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.28it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.43it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.38it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:05, 24.16it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.91it/s][A
+ 59%|█████▉    | 165/280 [00:07<00:05, 20.17it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.41it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.58it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.41it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.17it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.86it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.17it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.37it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.47it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.37it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.18it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.87it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.15it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.38it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.46it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.37it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.18it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.85it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.10it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.36it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.37it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.23it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.10it/s][A100%|██████████| 280/280 [00:11<00:00, 24.11it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.61s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.61s/it]
+    💿 Saved progressive step 95 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 1 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 1 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 1
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_01/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 2: (0-256, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.99it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.55it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.65it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.84it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.41it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.65it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.80it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.38it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.61it/s][A
+ 11%|█         | 30/280 [00:01<00:06, 41.62it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.65it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.50it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 22.02it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.21it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.37it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.48it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.84it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.41it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.09it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.31it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.42it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.83it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.56it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.29it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 21.99it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.22it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.37it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.54it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.49it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.21it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 21.97it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.18it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.39it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.60it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.37it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:05, 24.13it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.83it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.14it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.32it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.43it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.35it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.10it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.84it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.10it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.35it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.36it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.26it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.07it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.80it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.00it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.16it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.07it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.09it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.01it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.74it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.05it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.30it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.18it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.14it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.00it/s][A100%|██████████| 280/280 [00:11<00:00, 24.13it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.60s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.60s/it]
+    💿 Saved progressive step 95 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 2 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 2 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 2
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_02/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 3: (128-384, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.78it/s][A
+  1%|▏         | 4/280 [00:00<00:16, 17.24it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.39it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.60it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.22it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.52it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.76it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.38it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.61it/s][A
+ 11%|█         | 30/280 [00:01<00:06, 41.58it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.65it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.47it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 21.99it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.13it/s][A
+ 17%|█▋        | 48/280 [00:02<00:12, 19.27it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.27it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.65it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.30it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 21.98it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.28it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.46it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.78it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.54it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.26it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 21.97it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.28it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.45it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.63it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.44it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.13it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 21.89it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.21it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.39it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.56it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.42it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:05, 24.19it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.92it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.22it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.41it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.54it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.42it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.20it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.90it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.17it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.39it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.49it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.36it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.16it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.86it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.13it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.36it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.42it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.32it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.13it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.82it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.10it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.34it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.36it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.27it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.11it/s][A100%|██████████| 280/280 [00:11<00:00, 24.16it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.59s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.59s/it]
+    💿 Saved progressive step 95 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 3 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 3 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 3
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_03/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 4: (128-384, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.93it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.51it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.75it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.93it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.52it/s][A
+  4%|▍         | 12/280 [00:00<00:15, 16.75it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.90it/s][A
+  6%|▌         | 16/280 [00:00<00:15, 16.56it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.76it/s][A
+ 11%|█         | 30/280 [00:01<00:05, 42.12it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.90it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.62it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 22.07it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.17it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.34it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.35it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.71it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.32it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.00it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.18it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.35it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.58it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.36it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.12it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 21.86it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.18it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.35it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.48it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.29it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.09it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 21.79it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.08it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.27it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.36it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.32it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:05, 24.11it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.79it/s][A
+ 59%|█████▉    | 165/280 [00:07<00:05, 20.04it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.26it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.31it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.22it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.05it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.77it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.08it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.29it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.30it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.24it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.00it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.70it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.01it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.22it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.19it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.12it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.02it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.71it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 19.97it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.18it/s][A
+ 96%|█████████▋| 270/280 [00:11<00:00, 35.07it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.11it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 23.97it/s][A100%|██████████| 280/280 [00:11<00:00, 24.09it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.62s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.62s/it]
+    💿 Saved progressive step 95 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 4 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 4 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 4
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_04/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 5: (128-384, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.79it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.46it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.75it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.87it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.47it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.70it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.87it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.50it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.71it/s][A
+ 11%|█         | 30/280 [00:01<00:05, 41.97it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.81it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.51it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 22.03it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.30it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.41it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.65it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.97it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.42it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.17it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.42it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.51it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.96it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.66it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.28it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 21.99it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.32it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.48it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.81it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.64it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.32it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 22.06it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.30it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.48it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.76it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.56it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:04, 24.22it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.93it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.22it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.43it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.62it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.49it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.20it/s][A
+ 69%|██████▊   | 192/280 [00:07<00:04, 21.96it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.26it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.42it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.57it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.45it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.16it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.84it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.12it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.29it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.36it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.24it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.00it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.73it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.08it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.29it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.32it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.30it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.10it/s][A100%|██████████| 280/280 [00:11<00:00, 24.23it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.55s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.55s/it]
+    💿 Saved progressive step 95 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 5 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 5 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 5
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_05/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 6: (256-512, 0-256)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.77it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.43it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.56it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.80it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.35it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.63it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.81it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.39it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.63it/s][A
+ 11%|█         | 30/280 [00:01<00:06, 41.62it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.62it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.46it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 21.97it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.20it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.35it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.41it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.80it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.36it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.07it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.35it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.50it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.90it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.63it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.29it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 22.03it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.32it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.49it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.78it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.56it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.26it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 22.01it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.30it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.47it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.69it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.50it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:04, 24.23it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.95it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.24it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.42it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.59it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.44it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.19it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.91it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.17it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.38it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.52it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.39it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.15it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.88it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.16it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.37it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.46it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.34it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.12it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.85it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.14it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.36it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.44it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.32it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.11it/s][A100%|██████████| 280/280 [00:11<00:00, 24.21it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.57s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.57s/it]
+    💿 Saved progressive step 95 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 6 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 6 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 6
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_06/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 7: (256-512, 128-384)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.92it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.50it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.64it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.86it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.43it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.66it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.83it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.45it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.67it/s][A
+ 11%|█         | 30/280 [00:01<00:05, 41.73it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.68it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.49it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 21.98it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.20it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.34it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.40it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.77it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.35it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.05it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.32it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.47it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 35.82it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.59it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.28it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 22.01it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.30it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.45it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.70it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.53it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.23it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 21.97it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.26it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.44it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.67it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.51it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:04, 24.21it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 21.95it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.25it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.44it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.63it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.46it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.20it/s][A
+ 69%|██████▊   | 192/280 [00:08<00:04, 21.94it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.21it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.40it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.55it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.41it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.17it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.89it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.15it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.36it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.44it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.34it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.13it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.82it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.09it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.30it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.34it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.28it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.10it/s][A100%|██████████| 280/280 [00:11<00:00, 24.21it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.57s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.57s/it]
+    💿 Saved progressive step 95 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 7 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 7 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 7
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_07/progressive/step_000.png
+    ✅ Save complete for step 0
+🔧 Processing patch 8: (256-512, 256-512)
+  0%|          | 0/1 [00:00<?, ?it/s]total shifts:   0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/280 [00:00<?, ?it/s][A
+  1%|          | 2/280 [00:00<00:15, 17.90it/s][A
+  1%|▏         | 4/280 [00:00<00:15, 17.48it/s][A
+  2%|▏         | 6/280 [00:00<00:16, 16.65it/s][A
+  3%|▎         | 8/280 [00:00<00:16, 16.87it/s][A
+  4%|▎         | 10/280 [00:00<00:16, 16.45it/s][A
+  4%|▍         | 12/280 [00:00<00:16, 16.69it/s][A
+  5%|▌         | 14/280 [00:00<00:15, 16.85it/s][A
+  6%|▌         | 16/280 [00:00<00:16, 16.46it/s][A
+  6%|▋         | 18/280 [00:01<00:15, 16.69it/s][A
+ 11%|█         | 30/280 [00:01<00:05, 41.85it/s][A
+ 12%|█▎        | 35/280 [00:01<00:08, 28.76it/s][A
+ 14%|█▍        | 39/280 [00:01<00:09, 24.52it/s][A
+ 15%|█▌        | 42/280 [00:01<00:10, 22.05it/s][A
+ 16%|█▌        | 45/280 [00:02<00:11, 20.28it/s][A
+ 17%|█▋        | 48/280 [00:02<00:11, 19.40it/s][A
+ 21%|██▏       | 60/280 [00:02<00:06, 36.58it/s][A
+ 23%|██▎       | 65/280 [00:02<00:07, 27.88it/s][A
+ 25%|██▍       | 69/280 [00:02<00:08, 24.41it/s][A
+ 26%|██▌       | 72/280 [00:03<00:09, 22.13it/s][A
+ 27%|██▋       | 75/280 [00:03<00:10, 20.43it/s][A
+ 28%|██▊       | 78/280 [00:03<00:10, 19.55it/s][A
+ 32%|███▏      | 90/280 [00:03<00:05, 36.02it/s][A
+ 34%|███▍      | 95/280 [00:03<00:06, 27.71it/s][A
+ 35%|███▌      | 99/280 [00:04<00:07, 24.33it/s][A
+ 36%|███▋      | 102/280 [00:04<00:08, 22.08it/s][A
+ 38%|███▊      | 105/280 [00:04<00:08, 20.37it/s][A
+ 39%|███▊      | 108/280 [00:04<00:08, 19.51it/s][A
+ 43%|████▎     | 120/280 [00:04<00:04, 35.87it/s][A
+ 45%|████▍     | 125/280 [00:05<00:05, 27.65it/s][A
+ 46%|████▌     | 129/280 [00:05<00:06, 24.31it/s][A
+ 47%|████▋     | 132/280 [00:05<00:06, 22.07it/s][A
+ 48%|████▊     | 135/280 [00:05<00:07, 20.32it/s][A
+ 49%|████▉     | 138/280 [00:05<00:07, 19.47it/s][A
+ 54%|█████▎    | 150/280 [00:06<00:03, 35.76it/s][A
+ 55%|█████▌    | 155/280 [00:06<00:04, 27.59it/s][A
+ 57%|█████▋    | 159/280 [00:06<00:04, 24.28it/s][A
+ 58%|█████▊    | 162/280 [00:06<00:05, 22.01it/s][A
+ 59%|█████▉    | 165/280 [00:06<00:05, 20.29it/s][A
+ 60%|██████    | 168/280 [00:07<00:05, 19.47it/s][A
+ 64%|██████▍   | 180/280 [00:07<00:02, 35.72it/s][A
+ 66%|██████▌   | 185/280 [00:07<00:03, 27.53it/s][A
+ 68%|██████▊   | 189/280 [00:07<00:03, 24.24it/s][A
+ 69%|██████▊   | 192/280 [00:07<00:04, 21.97it/s][A
+ 70%|██████▉   | 195/280 [00:08<00:04, 20.25it/s][A
+ 71%|███████   | 198/280 [00:08<00:04, 19.44it/s][A
+ 75%|███████▌  | 210/280 [00:08<00:01, 35.64it/s][A
+ 77%|███████▋  | 215/280 [00:08<00:02, 27.46it/s][A
+ 78%|███████▊  | 219/280 [00:09<00:02, 24.19it/s][A
+ 79%|███████▉  | 222/280 [00:09<00:02, 21.92it/s][A
+ 80%|████████  | 225/280 [00:09<00:02, 20.21it/s][A
+ 81%|████████▏ | 228/280 [00:09<00:02, 19.40it/s][A
+ 86%|████████▌ | 240/280 [00:09<00:01, 35.54it/s][A
+ 88%|████████▊ | 245/280 [00:10<00:01, 27.40it/s][A
+ 89%|████████▉ | 249/280 [00:10<00:01, 24.16it/s][A
+ 90%|█████████ | 252/280 [00:10<00:01, 21.88it/s][A
+ 91%|█████████ | 255/280 [00:10<00:01, 20.11it/s][A
+ 92%|█████████▏| 258/280 [00:10<00:01, 19.31it/s][A
+ 96%|█████████▋| 270/280 [00:10<00:00, 35.42it/s][A
+ 98%|█████████▊| 275/280 [00:11<00:00, 27.31it/s][A
+100%|█████████▉| 279/280 [00:11<00:00, 24.08it/s][A100%|██████████| 280/280 [00:11<00:00, 24.26it/s]
+total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.54s/it]total shifts: 100%|██████████| 1/1 [00:11<00:00, 11.54s/it]
+    💿 Saved progressive step 95 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 90 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 85 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 80 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 75 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 70 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 65 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 60 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 55 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 50 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 45 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 40 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 35 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 30 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 25 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 20 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 15 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 10 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 5 for patch 8 (interval=5, t_max=100)
+    💿 Saved progressive step 0 for patch 8 (interval=5, t_max=100)
+  📸 Saving progressive step 0 as 0 for patch 8
+    💾 save_timestep called: timestep=0, condition=True
+    💿 Actually saving to: results/center_hole_inpainting_uncond/patches/patch_08/progressive/step_000.png
+    ✅ Save complete for step 0
+🎨 Starting blending process...
+✅ Enhanced Nine-Patch Inpainting完了!
+📁 詳細結果: results/center_hole_inpainting_uncond
+✅ Center Hole Inpainting completed!
+📁 Results saved to results/center_hole_inpainting_uncond/
+🔬 Compare with:
+   - Conditional (t_T=100): results/center_hole_inpainting_t100/
+   - Original (t_T=25): results/center_hole_inpainting_results/
+🎯 Expected result: Elephant removed, center filled with beach
