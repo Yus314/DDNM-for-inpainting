@@ -18,7 +18,6 @@ Features:
 - 全最終結果を集約したディレクトリ（final_results/）を自動作成
 - エラーハンドリングと進行状況表示
 """
-
 import os
 import sys
 import time
@@ -445,7 +444,7 @@ Examples:
     parser.add_argument("--input_dir", required=True,
                        help="Input directory containing images")
     parser.add_argument("--mask_type", required=True,
-                       choices=['center_mask', 'boundary_ring_5px', 'boundary_ring_10px'],
+                       choices=['center_mask', 'boundary_ring_5px', 'boundary_ring_10px', 'boundary_ring_136_10px'],
                        help="Mask type to use")
     parser.add_argument("--output_dir", required=True,
                        help="Output base directory")
