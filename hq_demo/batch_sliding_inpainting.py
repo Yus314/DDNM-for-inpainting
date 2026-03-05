@@ -5,7 +5,7 @@
 Usage:
     python batch_sliding_inpainting.py \
         --input_dir <画像ディレクトリ> \
-        --mask_type <center_mask|boundary_ring_5px|boundary_ring_10px> \
+        --mask_type <center_mask|boundary_ring_5px|boundary_ring_10px|boundary_ring_136_10px> \
         --output_dir <出力ディレクトリ> \
         [--config <設定ファイル>] \
         [--start <開始インデックス>] \
@@ -18,6 +18,7 @@ Features:
 - 全最終結果を集約したディレクトリ（final_results/）を自動作成
 - エラーハンドリングと進行状況表示
 """
+
 import os
 import sys
 import time
@@ -384,6 +385,154 @@ def process_single_image_sliding(
 
 
 # ============================================================================
+# 単一パッチ処理（スライディングウィンドウなし）
+# ============================================================================
+
+def process_single_image_single_pass(
+    model, diffusion, conf, device,
+    image_path: Path,
+    mask_path: str,
+    output_base: Path,
+    final_results_dir: Path
+) -> Tuple[bool, float, Optional[str]]:
+    """
+    単一パッチ処理: 中央256x256のみを切り出して1回で処理
+
+    512x512画像から中央256x256を切り出し、境界リングマスクの対応領域を適用して
+    1回のみ拡散処理を実行する。結果は元の512x512画像に合成される。
+
+    Args:
+        model, diffusion, conf, device: モデル関連
+        image_path: 入力画像パス
+        mask_path: マスク画像パス
+        output_base: 出力ベースディレクトリ
+        final_results_dir: 最終結果集約ディレクトリ
+
+    Returns:
+        (success, duration, error_message) のタプル
+    """
+    image_name = image_path.stem
+    output_dir = output_base / image_name
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    start_time = time.time()
+
+    try:
+        print(f"\n🎯 Processing (Single Pass): {image_path.name}")
+
+        # 画像とマスクの読み込み
+        pil_image = Image.open(image_path).convert('RGB')
+        pil_mask = Image.open(mask_path).convert('L')
+
+        print(f"  📐 Original image size: {pil_image.size}, Mask size: {pil_mask.size}")
+
+        # サイズ確認
+        if pil_image.size != (512, 512):
+            raise ValueError(f"Expected 512x512 image, got {pil_image.size}")
+        if pil_mask.size != (512, 512):
+            # マスクを512x512にリサイズ
+            print(f"  📐 Resizing mask from {pil_mask.size} to (512, 512)")
+            pil_mask = pil_mask.resize((512, 512), Image.Resampling.LANCZOS)
+
+        # 中央256x256を切り出し [128:384, 128:384]
+        crop_box = (128, 128, 384, 384)  # (left, upper, right, lower)
+        cropped_image = pil_image.crop(crop_box)
+        cropped_mask = pil_mask.crop(crop_box)
+
+        print(f"  📐 Cropped center: {cropped_image.size}")
+
+        # テンソル変換
+        arr_image = np.array(cropped_image).astype(np.float32) / 127.5 - 1  # [-1, 1]
+        arr_mask = np.array(cropped_mask).astype(np.float32) / 255.0  # [0, 1]
+
+        # マスクを反転（白=補完領域 → gt_keep_mask: 1=既知領域、0=補完領域）
+        arr_mask = 1.0 - arr_mask
+
+        gt = torch.from_numpy(np.transpose(arr_image, [2, 0, 1])).unsqueeze(0).to(device)
+        arr_mask_3ch = np.stack([arr_mask, arr_mask, arr_mask], axis=0)
+        gt_keep_mask = torch.from_numpy(arr_mask_3ch).unsqueeze(0).to(device)
+
+        print(f"  📊 Tensor: GT {gt.shape}, Mask {gt_keep_mask.shape}")
+        print(f"  📊 Mask range: {gt_keep_mask.min().item():.3f} - {gt_keep_mask.max().item():.3f}")
+
+        # nine_patch_mode を無効化して単一処理
+        original_nine_patch_mode = getattr(conf, 'nine_patch_mode', False)
+        conf.nine_patch_mode = False
+
+        # model_kwargs設定
+        class_id = torch.tensor([950], device=device)
+
+        model_kwargs = {
+            'gt': gt,
+            'gt_keep_mask': gt_keep_mask,
+            'deg': 'inpainting',
+            'save_path': str(output_dir),
+            'y': class_id,
+            'scale': 1,
+            'resize_y': False,
+            'sigma_y': 0.0,
+            'conf': conf
+        }
+
+        print(f"  🔄 Starting single pass inpainting (256x256 center only)...")
+
+        with torch.no_grad():
+            sample = None
+            for sample_dict in diffusion.p_sample_loop_progressive(
+                model,
+                gt.shape,  # (1, 3, 256, 256)
+                clip_denoised=True,
+                model_kwargs=model_kwargs,
+                device=device,
+                conf=conf
+            ):
+                sample = sample_dict["sample"]
+
+        # nine_patch_mode を元に戻す
+        conf.nine_patch_mode = original_nine_patch_mode
+
+        if sample is None:
+            raise RuntimeError("No sample generated")
+
+        # 結果保存
+        print(f"  💾 Saving results...")
+
+        result_256 = tensor_to_pil(sample)
+
+        # 512x512に合成
+        result_512 = pil_image.copy()
+        result_512.paste(result_256, (128, 128))
+
+        # 1. final_results/に保存
+        final_result_path = final_results_dir / f"{image_name}_result.png"
+        result_512.save(final_result_path)
+
+        # 2. 比較用画像を保存
+        pil_image.save(output_dir / "input.png")
+        cropped_image.save(output_dir / "cropped_input.png")
+
+        masked_cropped = tensor_to_pil(gt * gt_keep_mask)
+        masked_cropped.save(output_dir / "masked_cropped_input.png")
+
+        cropped_mask.save(output_dir / "cropped_mask.png")
+        result_256.save(output_dir / "result_256.png")
+        result_512.save(output_dir / "result_512.png")
+
+        duration = time.time() - start_time
+        print(f"  ✅ Success: {image_name} ({duration:.1f}s)")
+
+        return True, duration, None
+
+    except Exception as e:
+        duration = time.time() - start_time
+        error_msg = f"Error: {str(e)}"
+        print(f"  ❌ Failed: {image_name} - {error_msg}")
+        import traceback
+        traceback.print_exc()
+        return False, duration, error_msg
+
+
+# ============================================================================
 # サマリーファイル作成
 # ============================================================================
 
@@ -454,13 +603,18 @@ Examples:
                        help="Start index (for resuming)")
     parser.add_argument("--limit", type=int, default=None,
                        help="Maximum number of images to process")
+    parser.add_argument("--single_pass", action="store_true",
+                       help="中央256x256のみを1回で処理（スライディングウィンドウなし）")
 
     args = parser.parse_args()
 
     try:
         # セットアップ
         print("\n" + "="*80)
-        print("🚀 Sliding Window Inpainting Batch Processing")
+        if args.single_pass:
+            print("🚀 Single Pass Inpainting Batch Processing (Center 256x256 only)")
+        else:
+            print("🚀 Sliding Window Inpainting Batch Processing")
         print("="*80)
 
         output_base, log_dir, final_results_dir = setup_directories(args.output_dir)
@@ -486,6 +640,7 @@ Examples:
         print(f"   Final results dir: {final_results_dir}")
         print(f"   Images to process: {len(process_images)} ({args.start} to {end_idx-1})")
         print(f"   Config file: {args.config}")
+        print(f"   Processing mode: {'Single Pass (center 256x256)' if args.single_pass else 'Sliding Window'}")
         print(f"   Log file: {log_file}")
 
         # モデルセットアップ（1回のみ）
@@ -512,10 +667,16 @@ Examples:
             print(f"📸 [{current_idx+1}/{len(image_files)}] {image_path.name}")
             print(f"{'='*80}")
 
-            success, duration, error = process_single_image_sliding(
-                model, diffusion, conf, device,
-                image_path, mask_path, output_base, final_results_dir
-            )
+            if args.single_pass:
+                success, duration, error = process_single_image_single_pass(
+                    model, diffusion, conf, device,
+                    image_path, mask_path, output_base, final_results_dir
+                )
+            else:
+                success, duration, error = process_single_image_sliding(
+                    model, diffusion, conf, device,
+                    image_path, mask_path, output_base, final_results_dir
+                )
 
             if success:
                 success_count += 1
