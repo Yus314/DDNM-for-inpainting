@@ -32,3 +32,5 @@ temp_*
 
 # Results (managed separately)
 # results/ directories are tracked via results/.gitignore
+results/
+data/datasets/gts/
