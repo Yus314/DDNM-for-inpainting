@@ -34,3 +34,4 @@ temp_*
 # results/ directories are tracked via results/.gitignore
 results/
 data/datasets/gts/
+data/pretrained/
