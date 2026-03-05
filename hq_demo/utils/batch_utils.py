@@ -97,7 +97,7 @@ def get_image_list(input_dir: str) -> List[Path]:
         image_files.extend(input_path.glob(ext))
 
     # ソート
-    image_files = sorted(image_files, reverse=True)
+    image_files = sorted(image_files)
 
     if len(image_files) == 0:
         raise ValueError(f"No image files found in {input_dir}")
