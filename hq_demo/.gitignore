@@ -32,3 +32,8 @@ temp_*
 
 # Results (managed separately)
 # results/ directories are tracked via results/.gitignore
+
+# Large datasets and generated results
+data/datasets/
+results/
+!results/.gitignore

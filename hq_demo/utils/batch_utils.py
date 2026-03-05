@@ -13,6 +13,7 @@ MASK_PATHS = {
     'center_mask': 'data/datasets/gt_keep_masks/center_mask_512/center_mask_512x512.png',
     'boundary_ring_5px': 'data/datasets/gt_keep_masks/boundary_ring_168_5px/mask.png',
     'boundary_ring_10px': 'data/datasets/gt_keep_masks/boundary_ring_168_10px/mask.png',
+    'boundary_ring_136_10px': 'data/datasets/gt_keep_masks/boundary_ring_136_10px/mask.png',
 }
 
 
@@ -96,7 +97,7 @@ def get_image_list(input_dir: str) -> List[Path]:
         image_files.extend(input_path.glob(ext))
 
     # ソート
-    image_files = sorted(image_files)
+    image_files = sorted(image_files, reverse=True)
 
     if len(image_files) == 0:
         raise ValueError(f"No image files found in {input_dir}")
