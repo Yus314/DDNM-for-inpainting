@@ -13,6 +13,7 @@ MASK_PATHS = {
     'center_mask': 'data/datasets/gt_keep_masks/center_mask_512/center_mask_512x512.png',
     'boundary_ring_5px': 'data/datasets/gt_keep_masks/boundary_ring_168_5px/mask.png',
     'boundary_ring_10px': 'data/datasets/gt_keep_masks/boundary_ring_168_10px/mask.png',
+    'boundary_ring_136_10px': 'data/datasets/gt_keep_masks/boundary_ring_136_10px/mask.png',
 }
 
 
